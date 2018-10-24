@@ -1,0 +1,26 @@
+h2 {
+  margin-top: 0
+}
+h2:hover {
+  color: red
+}
+
+p:hover {
+  color: red
+}
+#fle {
+  display:flex;
+}
+.imgId {
+  border-radius:50%;
+  height: 30px;
+  margin-right: 20px;
+  width: 30px;
+}
+.mybtn {
+  height: 30px;
+  border-radius: 12px;
+  position: absolute;
+  margin-top: 50px;
+  right: 5px;
+}

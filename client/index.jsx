@@ -32,25 +32,23 @@ class InfiniteUsers extends Component {
       if (error || isLoading || !hasMore) return;
 
       // Checks that the page has scrolled to the bottom
-      if (
-        window.innerHeight + document.documentElement.scrollTop
-        === document.documentElement.offsetHeight
-      ) {
+
+      if (window.innerHeight + window.scrollY
+        === document.documentElement.offsetHeight || window.innerHeight >= document.documentElement.offsetHeight) {
         loadUsers();
       }
     };
   }
-
   componentWillMount() {
     // Loads some users on initial load
-    this.loadUsers();
+      this.loadUsers();
   }
 
   loadUsers(){
     var context = this
     context.setState({ isLoading: true }, () => {
       request
-        .get('https://randomuser.me/api/?results=10')
+        .get('https://randomuser.me/api/?results=2')
         .then((results) => {
           // Creates a massaged array of user data
           const nextUsers = results.body.results.map(user => ({
@@ -96,28 +94,25 @@ class InfiniteUsers extends Component {
         <h1>Infinite Users!</h1>
         <p>Scroll down to load more!!</p>
         {users.map(user => (
-          <Fragment key={user.username}>
+          <div>
             <hr />
-            <div style={{ display: 'flex' }}>
+            <div id='myid' style={{ display: 'flex' }}>
               <img
+                className='imgId'
                 alt={user.username}
                 src={user.photo}
-                style={{
-                  borderRadius: '50%',
-                  height: 72,
-                  marginRight: 20,
-                  width: 72,
-                }}
               />
               <div>
-                <h2 style={{ marginTop: 0 }}>
+                <h2 >
                   @{user.username}
                 </h2>
                 <p>Name: {user.name}</p>
                 <p>Email: {user.email}</p>
               </div>
+              <button className='mybtn'> Reply </button>
             </div>
-          </Fragment>
+
+          </div>
         ))}
         <hr />
         {error &&
@@ -128,9 +123,7 @@ class InfiniteUsers extends Component {
         {isLoading &&
           <div>Loading...</div>
         }
-        {!hasMore &&
-          <div>You did it! You reached the end!</div>
-        }
+
       </div>
     );
   }
