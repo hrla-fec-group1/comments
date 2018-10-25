@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 import request from "superagent";
+import $ from 'jquery';
 
 class InfiniteUsers extends Component {
   constructor(props) {
@@ -39,9 +40,35 @@ class InfiniteUsers extends Component {
       }
     };
   }
-  componentWillMount() {
+  // componentDidMount(){
+  //   var context = this
+  //   $.ajax({
+  //     method: 'GET',
+  //     url: '/data',
+  //     success: (data) => {
+  //       console.log(data)
+  //     },
+  //     error: (err) => {
+  //       console.log('err', err);
+  //     }
+  //   });
+  // }
+  componentDidMount() {
     // Loads some users on initial load
-      this.loadUsers();
+    var context = this
+    $.ajax({
+      method: 'GET',
+      url: '/data',
+      success: (data) => {
+        context.setState({
+          users: data
+        })
+        console.log('users',this.state.users)
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
   }
 
   loadUsers(){

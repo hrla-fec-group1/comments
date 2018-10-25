@@ -1004,7 +1004,7 @@ const samplePosts = [{"id":58,"content":"Maecenas leo odio, condimentum id, luct
 
 const insertSampleBlogs = function() {
   Comments.create(samplePosts)
-    .then(() => db.disconnect());
+    .then(() => db.close());
 };
 
 insertSampleBlogs();
