@@ -11,7 +11,7 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
 app.get('/data',function(req,res){
-  Comments.find({id:5},function(err,data){
+  Comments.find(function(err,data){
     if(err){
       console.log(err)
     } else{

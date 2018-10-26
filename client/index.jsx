@@ -12,7 +12,10 @@ class InfiniteUsers extends Component {
       error: false,
       hasMore: true,
       isLoading: false,
+      page: 1,
       users: [],
+      tmpUser: [],
+      currentUser:[]
     };
     this.loadUsers = this.loadUsers.bind(this)
     // Binds our scroll event handler
@@ -36,6 +39,9 @@ class InfiniteUsers extends Component {
 
       if (window.innerHeight + window.scrollY
         === document.documentElement.offsetHeight || window.innerHeight >= document.documentElement.offsetHeight) {
+          this.setState({
+            page: this.state.page +1
+          })
         loadUsers();
       }
     };
@@ -61,9 +67,19 @@ class InfiniteUsers extends Component {
       url: '/data',
       success: (data) => {
         context.setState({
-          users: data
+          users: data,
+        },function(){
+          context.setState({
+            tmpUser: context.state.users.slice(0+this.state.page*10,10+this.state.page*10)
+          },function(){
+            context.setState({
+              currentUser: [...context.state.currentUser,...context.state.tmpUser]
+            })
+          })
         })
-        console.log('users',this.state.users)
+        // setTimeout(function(){
+        //   console.log('users',context.state.users,context.state.tmpUser)
+        // },1000)
       },
       error: (err) => {
         console.log('err', err);
@@ -74,37 +90,38 @@ class InfiniteUsers extends Component {
   loadUsers(){
     var context = this
     context.setState({ isLoading: true }, () => {
-      request
-        .get('https://randomuser.me/api/?results=2')
-        .then((results) => {
-          // Creates a massaged array of user data
-          const nextUsers = results.body.results.map(user => ({
-            email: user.email,
-            name: Object.values(user.name).join(' '),
-            photo: user.picture.medium,
-            username: user.login.username,
-            uuid: user.login.uuid,
-          }));
+      $.ajax({
+        method: 'GET',
+        url: '/data',
+        success: (data) => {
+          context.setState({
+            users: data
+          },function(){
+            context.setState({
+              tmpUser: context.state.users.slice(0+this.state.page*10,10+this.state.page*10)
+            },function(){
+              context.setState({
+                currentUser: [...context.state.currentUser,...context.state.tmpUser]
+              })
+            })
+          })
+          // setTimeout(function(){
+          //   console.log('users',context.state.users)
+          // },1000)
+        },
+        error: (err) => {
+          console.log('err', err);
+        }
+      });
 
           // Merges the next users into our existing users
           context.setState({
             // Note: Depending on the API you're using, this value may
             // be returned as part of the payload to indicate that there
             // is no additional data to be loaded
-            hasMore: (context.state.users.length < 100),
-            isLoading: false,
-            users: [
-              ...context.state.users,
-              ...nextUsers,
-            ],
+            hasMore: (context.state.currentUser.length < 1000),
+            isLoading: false
           });
-        })
-        .catch((err) => {
-          context.setState({
-            error: err.message,
-            isLoading: false,
-           });
-        })
     });
   }
 
@@ -114,27 +131,38 @@ class InfiniteUsers extends Component {
       hasMore,
       isLoading,
       users,
+      tmpUser,
+      currentUser
     } = this.state;
 
     return (
       <div>
         <h1>Infinite Users!</h1>
         <p>Scroll down to load more!!</p>
-        {users.map(user => (
+        {currentUser.map(user => (
           <div>
             <hr />
             <div id='myid' style={{ display: 'flex' }}>
               <img
                 className='imgId'
                 alt={user.username}
-                src={user.photo}
+                src={user.picture}
               />
               <div>
                 <h2 >
-                  @{user.username}
+                  {user.user}  <div>at {user.pointInSong}</div>
                 </h2>
-                <p>Name: {user.name}</p>
-                <p>Email: {user.email}</p>
+                <div>
+                <p> {user.content}</p>
+                </div>
+                <div className='replyDiv'>
+                {user.replies.map((reply) => (
+                  <div>
+                  {reply.userName}
+                  </div>
+                ))}
+                </div>
+                <p>{user.time}</p>
               </div>
               <button className='mybtn'> Reply </button>
             </div>
