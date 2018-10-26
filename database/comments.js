@@ -8,7 +8,7 @@ var itemSchema = mongoose.Schema({
   user: String,
   picture:String,
   replies: Array,
-  time : { type : Date, default: Date.now },
+  time : String,
   pointInSong: Number
 });
 

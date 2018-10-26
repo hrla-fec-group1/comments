@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 import request from "superagent";
 import $ from 'jquery';
+import Popup from 'reactjs-popup'
 
 class InfiniteUsers extends Component {
   constructor(props) {
@@ -15,7 +16,9 @@ class InfiniteUsers extends Component {
       page: 1,
       users: [],
       tmpUser: [],
-      currentUser:[]
+      currentUser:[],
+      x:0,
+      y:0
     };
     this.loadUsers = this.loadUsers.bind(this)
     // Binds our scroll event handler
@@ -36,7 +39,7 @@ class InfiniteUsers extends Component {
       if (error || isLoading || !hasMore) return;
 
       // Checks that the page has scrolled to the bottom
-
+      this.handleMouseMove = this.handleMouseMove.bind(this)
       if (window.innerHeight + window.scrollY
         === document.documentElement.offsetHeight || window.innerHeight >= document.documentElement.offsetHeight) {
           this.setState({
@@ -45,6 +48,9 @@ class InfiniteUsers extends Component {
         loadUsers();
       }
     };
+  }
+  handleMouseMove(event) {
+    console.log(event.clientX,event.clientY)
   }
   // componentDidMount(){
   //   var context = this
@@ -136,33 +142,133 @@ class InfiniteUsers extends Component {
     } = this.state;
 
     return (
-      <div>
+      <div >
         <h1>Infinite Users!</h1>
         <p>Scroll down to load more!!</p>
         {currentUser.map(user => (
           <div>
             <hr />
             <div id='myid' style={{ display: 'flex' }}>
+            <Popup trigger={<img
+              className='imgId'
+              src={user.picture}
+            />}
+            position="right bottom"
+            on='hover'>
+            <div>
+            <img
+              className='lgImg'
+              src={user.picture}
+            />
+            <p className="popup"> {user.user} </p>
+            <div>
+            <img
+              className='follow'
+              src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+            />
+            <span> 50</span>
+            </div>
+            <button className="myBtn"> Follow</button>
+            </div>
+            </Popup>
+              <div>
+              <Popup trigger={<span className="h2T"> {user.user}</span>}
+              position="right bottom"
+              on='hover'>
+              <div>
               <img
-                className='imgId'
-                alt={user.username}
+                className='lgImg'
                 src={user.picture}
               />
+              <p className="popup"> {user.user} </p>
               <div>
-                <h2 >
-                  {user.user}  <div>at {user.pointInSong}</div>
-                </h2>
+              <img
+                className='follow'
+                src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+              />
+              <span> 50</span>
+              </div>
+              <button className="myBtn"> Follow</button>
+              </div>
+              </Popup>
+              <span>at {user.pointInSong}</span>
+              <span>{user.time}</span>
                 <div>
                 <p> {user.content}</p>
                 </div>
                 <div className='replyDiv'>
                 {user.replies.map((reply) => (
                   <div>
-                  {reply.userName}
+                  <Popup trigger={<img
+                    className='smImg'
+                    src={reply.pic}
+                  />}
+                  position="bottom center"
+                  on='hover'>
+                  <div>
+                  <img
+                    className='lgImg'
+                    src={reply.pic}
+                  />
+                  <p className="popup"> {reply.userName} </p>
+                  <div>
+                  <img
+                    className='follow'
+                    src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+                  />
+                  <span> 50</span>
+                  </div>
+                  <button className="myBtn"> Follow</button>
+                  </div>
+                  </Popup>
+                  <Popup trigger={<span>{reply.userName}</span>}
+                  position="bottom center"
+                  on='hover'>
+                  <div>
+                  <img
+                    className='lgImg'
+                    src={reply.pic}
+                  />
+                  <p className="popup"> {reply.userName} </p>
+                  <div>
+                  <img
+                    className='follow'
+                    src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+                  />
+                  <span> 50</span>
+                  </div>
+                  <button className="myBtn"> Follow</button>
+                  </div>
+                  </Popup>
+                  <span>at {user.pointInSong}</span>
+                  <div>
+                  <div>
+                  <Popup trigger={<span><span>@</span><a className="button">{user.user}</a></span>}
+                  position="bottom center"
+                  on='hover'>
+                  <div>
+                  <img
+                    className='lgImg'
+                    src={user.picture}
+                  />
+                  <p className="popup"> {user.user} </p>
+                  <div>
+                  <img
+                    className='follow'
+                    src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+                  />
+                  <span> 50</span>
+                  </div>
+                  <button className="myBtn"> Follow</button>
+                  </div>
+                  </Popup>
+                  <span>{reply.reply}</span>
+                  <span>{user.time}</span>
+                  </div>
+                  </div>
                   </div>
                 ))}
                 </div>
-                <p>{user.time}</p>
               </div>
               <button className='mybtn'> Reply </button>
             </div>

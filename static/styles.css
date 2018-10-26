@@ -1,21 +1,30 @@
-h2 {
+.h2T {
   margin-top: 0
 }
-h2:hover {
+.h2T:hover {
   color: red
 }
 
-p:hover {
-  color: red
+.button {
+  color: blue
+}
+.black {
+  color: black
 }
 #fle {
   display:flex;
+}
+.myBtn {
+  margin-left: 70px;
 }
 .imgId {
   border-radius:50%;
   height: 30px;
   margin-right: 20px;
   width: 30px;
+}
+.popup {
+  text-align: center
 }
 .mybtn {
   height: 30px;
@@ -26,4 +35,25 @@ p:hover {
 }
 .replyDiv {
   margin-left: 50px
+}
+.smImg {
+  border-radius:50%;
+  height: 15px;
+  margin-right: 20px;
+  width: 15px;
+}
+.lgImg {
+  border-radius:50%;
+  height: 40px;
+  margin-left: 70px;
+  width: 40px;
+}
+.follow {
+  border-radius:50%;
+  height: 15px;
+  margin-left: 80px;
+  width: 15px;
+}
+span {
+  padding-left: 10px;
 }
