@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import request from "superagent";
 import $ from 'jquery';
 import Popup from 'reactjs-popup'
+import axios from 'axios'
 
 class InfiniteUsers extends Component {
   constructor(props) {
@@ -18,9 +19,14 @@ class InfiniteUsers extends Component {
       tmpUser: [],
       currentUser:[],
       x:0,
-      y:0
+      y:0,
+      replyMessage:"",
     };
     this.loadUsers = this.loadUsers.bind(this)
+    this.hov = this.hov.bind(this)
+    this.render = this.render.bind(this)
+    this.hello = this.hello.bind(this)
+    this.togglePopup = this.togglePopup.bind(this)
     // Binds our scroll event handler
     window.onscroll = () => {
       const {
@@ -52,19 +58,6 @@ class InfiniteUsers extends Component {
   handleMouseMove(event) {
     console.log(event.clientX,event.clientY)
   }
-  // componentDidMount(){
-  //   var context = this
-  //   $.ajax({
-  //     method: 'GET',
-  //     url: '/data',
-  //     success: (data) => {
-  //       console.log(data)
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     }
-  //   });
-  // }
   componentDidMount() {
     // Loads some users on initial load
     var context = this
@@ -130,6 +123,50 @@ class InfiniteUsers extends Component {
           });
     });
   }
+  hov(index){
+    document.getElementsByClassName('mybtn')[index].style.visibility = 'visible'
+  }
+  off(index){
+    document.getElementsByClassName('mybtn')[index].style.visibility = 'hidden'
+  }
+  show(index){
+    document.getElementsByClassName('popno').style.visibility = 'visible'
+  }
+  hello(e,index){
+    e.preventDefault()
+    var context = this
+    console.log(index,document.getElementsByClassName('message'))
+    axios.patch('/data', {
+                'replies':[document.getElementsByClassName('message')[0].value],
+                'index': this.state.currentUser[index].id
+            })
+            .then((response) => {
+              axios.get('/data').then((myResponse)=>{
+                context.setState({
+                  users: myResponse.data,
+                })
+              }).then((newRes)=>{
+                  context.setState({
+                    tmpUser: context.state.users.slice(0+this.state.page*10,10+this.state.page*10)
+              })
+            }).then(()=>{
+              context.setState({
+                currentUser: context.state.tmpUser
+              })
+            })
+              setTimeout(function(){
+                console.log(context.state.tmpUser)
+              },1000)
+            });
+    document.getElementsByClassName('popno')[0].style.visibility = 'hidden'
+  }
+  togglePopup(index) {
+    if(document.getElementsByClassName('hi')[index].style.visibility === "visible"){
+      document.getElementsByClassName('hi')[index].style.visibility = "hidden"
+    } else{
+      document.getElementsByClassName('hi')[index].style.visibility = "visible"
+    }
+  }
 
   render() {
     const {
@@ -143,17 +180,16 @@ class InfiniteUsers extends Component {
 
     return (
       <div >
-        <h1>Infinite Users!</h1>
-        <p>Scroll down to load more!!</p>
-        {currentUser.map(user => (
-          <div>
-            <hr />
+        {currentUser.map((user,index) => (
+          <div onMouseEnter={()=>this.hov(index)}
+    onMouseLeave={()=>this.off(index)}>
+
             <div id='myid' style={{ display: 'flex' }}>
             <Popup trigger={<img
               className='imgId'
               src={user.picture}
             />}
-            position="right bottom"
+            position="bottom left"
             on='hover'>
             <div>
             <img
@@ -173,7 +209,7 @@ class InfiniteUsers extends Component {
             </Popup>
               <div>
               <Popup trigger={<span className="h2T"> {user.user}</span>}
-              position="right bottom"
+              position="bottom left"
               on='hover'>
               <div>
               <img
@@ -270,12 +306,23 @@ class InfiniteUsers extends Component {
                 ))}
                 </div>
               </div>
-              <button className='mybtn'> Reply </button>
+              <Popup className="popno" trigger={<button className='mybtn' onClick={()=>this.show(index)}> Reply </button>}
+                on='click'
+                position='left center'>
+
+                <div><form>
+                                    Message:<br></br>
+                                    <input onChange={this.change} className="message" type="text" name="firstname"></input><br></br>
+                                    Last name:<br></br>
+                                    <input type="text" ></input>
+                                    <button onClick={(e)=>this.hello(e,index)}>submit</button>
+                                    </form></div>
+              </Popup>
             </div>
+            <br></br>
 
           </div>
         ))}
-        <hr />
         {error &&
           <div style={{ color: '#900' }}>
             {error}
@@ -290,6 +337,4 @@ class InfiniteUsers extends Component {
   }
 }
 
-const container = document.createElement("div");
-document.body.appendChild(container);
-render(<InfiniteUsers />, container);
+render(<InfiniteUsers />, document.getElementById('root'));

@@ -30,8 +30,12 @@
   height: 30px;
   border-radius: 12px;
   position: absolute;
+  visibility: hidden;
   margin-top: 50px;
   right: 5px;
+}
+.hi {
+  visibility: hidden
 }
 .replyDiv {
   margin-left: 50px
