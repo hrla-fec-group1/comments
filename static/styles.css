@@ -1,12 +1,54 @@
 .h2T {
-  margin-top: 0
+  font-size: 12px;
+  color: #999;
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.4;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
 }
 .h2T:hover {
-  color: red
+  color: black
 }
 
 .button {
-  color: blue
+  color: blue;
+  font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 12px;
+    line-height: 1.4;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+}
+.verylight {
+  font-size: 11px;
+  color: #ccc;
+  font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.4;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+}
+.container {
+  display:table;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+  position: relative;
 }
 .black {
   color: black
@@ -19,32 +61,95 @@
 }
 .imgId {
   border-radius:50%;
-  height: 30px;
-  margin-right: 20px;
-  width: 30px;
+  height: 40px;
+  margin-right: 0px;
+  width: 40px;
 }
 .popup {
   text-align: center
 }
+.commentTable {
+  display: flex;
+  margin-right: 10px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0%;
+  flex-direction: column;
+}
+.content {
+  font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 12px;
+    line-height: 1.4;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+    color: #333;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+.reply {
+  font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 12px;
+    line-height: 1.4;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+    color: #333;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+.point {
+  font-size: 11px;
+  color: #999;
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.4;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+}
+.time {
+  margin-left: 100px;
+  font-size: 11px;
+  color: #999;
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.4;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+}
 .mybtn {
   height: 30px;
   border-radius: 12px;
-  position: absolute;
+  margin-left: 50px;
   visibility: hidden;
-  margin-top: 50px;
-  right: 5px;
 }
 .hi {
   visibility: hidden
 }
 .replyDiv {
-  margin-left: 50px
+  margin-left: 0px
 }
 .smImg {
   border-radius:50%;
-  height: 15px;
-  margin-right: 20px;
-  width: 15px;
+  height: 40px;
+  margin-right: 0px;
+  width: 40px;
 }
 .lgImg {
   border-radius:50%;

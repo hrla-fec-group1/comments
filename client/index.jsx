@@ -14,7 +14,7 @@ class InfiniteUsers extends Component {
       error: false,
       hasMore: true,
       isLoading: false,
-      page: 1,
+      page: 0,
       users: [],
       tmpUser: [],
       currentUser:[],
@@ -46,8 +46,10 @@ class InfiniteUsers extends Component {
 
       // Checks that the page has scrolled to the bottom
       this.handleMouseMove = this.handleMouseMove.bind(this)
+      console.log(window.innerHeight,window.scrollY,document.documentElement.offsetHeight)
       if (window.innerHeight + window.scrollY
-        === document.documentElement.offsetHeight || window.innerHeight >= document.documentElement.offsetHeight) {
+        === document.documentElement.offsetHeight) {
+          console.log('bigger')
           this.setState({
             page: this.state.page +1
           })
@@ -61,57 +63,36 @@ class InfiniteUsers extends Component {
   componentDidMount() {
     // Loads some users on initial load
     var context = this
-    $.ajax({
-      method: 'GET',
-      url: '/data',
-      success: (data) => {
+    axios.get('/data').then((response)=>{
+      context.setState({
+        users: response.data,
+      },function(){
         context.setState({
-          users: data,
+          tmpUser: context.state.users.slice(0+this.state.page*10,10+this.state.page*10)
         },function(){
           context.setState({
-            tmpUser: context.state.users.slice(0+this.state.page*10,10+this.state.page*10)
-          },function(){
-            context.setState({
-              currentUser: [...context.state.currentUser,...context.state.tmpUser]
-            })
+            currentUser: [...context.state.currentUser,...context.state.tmpUser]
           })
         })
-        // setTimeout(function(){
-        //   console.log('users',context.state.users,context.state.tmpUser)
-        // },1000)
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
+      })
     });
   }
 
   loadUsers(){
     var context = this
-    context.setState({ isLoading: true }, () => {
-      $.ajax({
-        method: 'GET',
-        url: '/data',
-        success: (data) => {
+    axios.get('/data').then((response)=>{
+      context.setState({
+        users: response.data,
+      },function(){
+        context.setState({
+          tmpUser: context.state.users.slice(0+this.state.page*10,10+this.state.page*10)
+        },function(){
           context.setState({
-            users: data
-          },function(){
-            context.setState({
-              tmpUser: context.state.users.slice(0+this.state.page*10,10+this.state.page*10)
-            },function(){
-              context.setState({
-                currentUser: [...context.state.currentUser,...context.state.tmpUser]
-              })
-            })
+            currentUser: [...context.state.currentUser,...context.state.tmpUser]
           })
-          // setTimeout(function(){
-          //   console.log('users',context.state.users)
-          // },1000)
-        },
-        error: (err) => {
-          console.log('err', err);
-        }
-      });
+        })
+      })
+    });
 
           // Merges the next users into our existing users
           context.setState({
@@ -121,7 +102,6 @@ class InfiniteUsers extends Component {
             hasMore: (context.state.currentUser.length < 1000),
             isLoading: false
           });
-    });
   }
   hov(index){
     document.getElementsByClassName('mybtn')[index].style.visibility = 'visible'
@@ -138,25 +118,25 @@ class InfiniteUsers extends Component {
     console.log(index,document.getElementsByClassName('message'))
     axios.patch('/data', {
                 'replies':[document.getElementsByClassName('message')[0].value],
-                'index': this.state.currentUser[index].id
+                'index': this.state.currentUser[index]._id
             })
             .then((response) => {
               axios.get('/data').then((myResponse)=>{
                 context.setState({
                   users: myResponse.data,
-                })
-              }).then((newRes)=>{
+                },function(){
+                  console.log(context.state.users,context.state.page)
                   context.setState({
-                    tmpUser: context.state.users.slice(0+this.state.page*10,10+this.state.page*10)
+                    tmpUser: context.state.users.slice(0,10+this.state.page*10)
+              },function(){
+                context.setState({
+                  currentUser: [...context.state.tmpUser]
+                },function(){
+                  console.log(context.state.currentUser)
+                })
               })
-            }).then(()=>{
-              context.setState({
-                currentUser: context.state.tmpUser
+                })
               })
-            })
-              setTimeout(function(){
-                console.log(context.state.tmpUser)
-              },1000)
             });
     document.getElementsByClassName('popno')[0].style.visibility = 'hidden'
   }
@@ -179,7 +159,7 @@ class InfiniteUsers extends Component {
     } = this.state;
 
     return (
-      <div >
+      <div className="container">
         {currentUser.map((user,index) => (
           <div onMouseEnter={()=>this.hov(index)}
     onMouseLeave={()=>this.off(index)}>
@@ -208,7 +188,7 @@ class InfiniteUsers extends Component {
             </div>
             </Popup>
               <div>
-              <Popup trigger={<span className="h2T"> {user.user}</span>}
+              <Popup trigger={<span className="h2T">{user.user}</span>}
               position="bottom left"
               on='hover'>
               <div>
@@ -216,7 +196,7 @@ class InfiniteUsers extends Component {
                 className='lgImg'
                 src={user.picture}
               />
-              <p className="popup"> {user.user} </p>
+              <p className="popup">{user.user}</p>
               <div>
               <img
                 className='follow'
@@ -227,14 +207,27 @@ class InfiniteUsers extends Component {
               <button className="myBtn"> Follow</button>
               </div>
               </Popup>
-              <span>at {user.pointInSong}</span>
-              <span>{user.time}</span>
+              <span className="verylight">at</span>
+              <span className="point">{user.pointInSong}</span>
+              <span className="time">{user.time}</span>
                 <div>
-                <p> {user.content}</p>
-                </div>
+                <span className='content'> {user.content}</span>
+                <span>
+                <Popup className="popno" trigger={<button className='mybtn' onClick={()=>this.show(index)}> Reply </button>}
+                  on='click'
+                  position='left center'>
+
+                  <div><form>
+                                      Message:<br></br>
+                                      <input onChange={this.change} className="message" type="text" name="firstname"></input><br></br>
+                                      <button onClick={(e)=>this.hello(e,index)}>submit</button>
+                                      </form></div>
+                </Popup>
+                </span>
+                </div><br></br>
                 <div className='replyDiv'>
                 {user.replies.map((reply) => (
-                  <div>
+                  <div style={{display:'flex'}}>
                   <Popup trigger={<img
                     className='smImg'
                     src={reply.pic}
@@ -257,7 +250,8 @@ class InfiniteUsers extends Component {
                   <button className="myBtn"> Follow</button>
                   </div>
                   </Popup>
-                  <Popup trigger={<span>{reply.userName}</span>}
+                  <div>
+                  <Popup trigger={<span className="h2T">{reply.userName}</span>}
                   position="bottom center"
                   on='hover'>
                   <div>
@@ -276,10 +270,11 @@ class InfiniteUsers extends Component {
                   <button className="myBtn"> Follow</button>
                   </div>
                   </Popup>
-                  <span>at {user.pointInSong}</span>
+                  <span className="verylight">at</span>
+                  <span className="point">{user.pointInSong}</span>
+                  <span className="time">{user.time}</span>
                   <div>
-                  <div>
-                  <Popup trigger={<span><span>@</span><a className="button">{user.user}</a></span>}
+                  <Popup trigger={<span>@<a className="button">{user.user}</a>:</span>}
                   position="bottom center"
                   on='hover'>
                   <div>
@@ -298,26 +293,14 @@ class InfiniteUsers extends Component {
                   <button className="myBtn"> Follow</button>
                   </div>
                   </Popup>
-                  <span>{reply.reply}</span>
-                  <span>{user.time}</span>
+                  <span className="reply">{reply.reply}</span>
                   </div>
                   </div>
+                  <br></br><br></br><br></br>
                   </div>
                 ))}
                 </div>
               </div>
-              <Popup className="popno" trigger={<button className='mybtn' onClick={()=>this.show(index)}> Reply </button>}
-                on='click'
-                position='left center'>
-
-                <div><form>
-                                    Message:<br></br>
-                                    <input onChange={this.change} className="message" type="text" name="firstname"></input><br></br>
-                                    Last name:<br></br>
-                                    <input type="text" ></input>
-                                    <button onClick={(e)=>this.hello(e,index)}>submit</button>
-                                    </form></div>
-              </Popup>
             </div>
             <br></br>
 

@@ -26,7 +26,7 @@ app.patch('/data',function(req,res){
   temp.reply = req.body.replies
   temp.pic = faker.internet.avatar()
   temp.userName = faker.internet.userName()
-  Comments.update({id:req.body.index},{$push:{replies:temp}},function(err,data){
+  Comments.update({_id:req.body.index},{$push:{replies:temp}},function(err,data){
     if(err){
       console.log(err)
     } else{
