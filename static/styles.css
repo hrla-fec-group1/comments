@@ -41,14 +41,78 @@
     line-height: 1.4;
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
 }
+.amount {
+  margin-left: 150px;
+  border-bottom: 1px solid #f2f2f2;
+  margin-right: 360px;
+  color: #999;
+  font-weight: 100;
+}
 .container {
-  display:table;
+  display:block;
   -webkit-margin-before: 1em;
   -webkit-margin-after: 1em;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
   -webkit-padding-start: 40px;
   position: relative;
+  margin-left:auto;
+  margin-right:auto;
+  width:960px;
+}
+.related {
+  padding-top: 5px;
+}
+.wrapper {
+  display: block;
+  flex: 1;
+  min-width: 0;
+}
+.nameRel {
+  overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+word-break: normal;
+}
+.songRel {
+  overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+word-break: normal;
+}
+.relateImg {
+  display: inline-block;
+background: center center/contain no-repeat;
+margin-right: 4px;
+padding: 5px 6px;
+width: 50px;
+height: 50px;
+position: relative;
+    float: left;
+}
+.ele {
+  padding: 0;
+left: -6px;
+margin-right: -6px;
+position: relative;
+min-height: 60px;
+border-radius: 4px;
+}
+.right {
+  top: 30px;
+    right: 0;
+    position: absolute;
+    width: 300px;
+    display: block;
+    margin-bottom: 20px;
+
+}
+.left {
+  margin-right: 330px;
+  padding-top: 20px;
+  padding-right: 30px;
+  border-right: 1px solid #f2f2f2;
+  padding-left: 150px;
 }
 .black {
   color: black
@@ -78,6 +142,7 @@
 }
 .content {
   font-style: normal;
+  text-align: -webkit-match-parent;
     font-variant-ligatures: normal;
     font-variant-caps: normal;
     font-variant-numeric: normal;
@@ -88,8 +153,25 @@
     line-height: 1.4;
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
     color: #333;
+    word-break: break-word;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    display: block;
+}
+.aClass {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+}
+.aHead {
+  font-weight: 100;
+    color: #999;
+}
+.spanOut {
+  font-weight: 100;
+    color: #999;
 }
 .reply {
   font-style: normal;
@@ -120,7 +202,8 @@
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
 }
 .time {
-  margin-left: 100px;
+  margin-left: 10px;
+  white-space: nowrap;
   font-size: 11px;
   color: #999;
   font-style: normal;
@@ -143,12 +226,18 @@
   visibility: hidden
 }
 .replyDiv {
-  margin-left: 0px
+  padding-left: 0px;
+  margin-left: 20px;
 }
 .smImg {
   border-radius:50%;
   height: 40px;
   margin-right: 0px;
+  width: 40px;
+}
+.newImg {
+  border-radius:50%;
+  height: 40px;
   width: 40px;
 }
 .lgImg {

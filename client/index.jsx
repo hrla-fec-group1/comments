@@ -18,6 +18,7 @@ class InfiniteUsers extends Component {
       users: [],
       tmpUser: [],
       currentUser:[],
+      currentSong: [],
       x:0,
       y:0,
       replyMessage:"",
@@ -48,7 +49,7 @@ class InfiniteUsers extends Component {
       this.handleMouseMove = this.handleMouseMove.bind(this)
       console.log(window.innerHeight,window.scrollY,document.documentElement.offsetHeight)
       if (window.innerHeight + window.scrollY
-        === document.documentElement.offsetHeight) {
+        >= document.documentElement.offsetHeight) {
           console.log('bigger')
           this.setState({
             page: this.state.page +1
@@ -72,6 +73,10 @@ class InfiniteUsers extends Component {
         },function(){
           context.setState({
             currentUser: [...context.state.currentUser,...context.state.tmpUser]
+          },function(){
+            context.setState({
+              currentSong: context.state.currentUser[0]
+            })
           })
         })
       })
@@ -155,11 +160,16 @@ class InfiniteUsers extends Component {
       isLoading,
       users,
       tmpUser,
-      currentUser
+      currentUser,
+      currentSong
     } = this.state;
 
     return (
       <div className="container">
+      <div className="amount">
+      {users.length} Comments
+      </div>
+      <div className="left">
         {currentUser.map((user,index) => (
           <div onMouseEnter={()=>this.hov(index)}
     onMouseLeave={()=>this.off(index)}>
@@ -210,7 +220,7 @@ class InfiniteUsers extends Component {
               <span className="verylight">at</span>
               <span className="point">{user.pointInSong}</span>
               <span className="time">{user.time}</span>
-                <div>
+                <div style={{display:'flex'}}>
                 <span className='content'> {user.content}</span>
                 <span>
                 <Popup className="popno" trigger={<button className='mybtn' onClick={()=>this.show(index)}> Reply </button>}
@@ -224,12 +234,12 @@ class InfiniteUsers extends Component {
                                       </form></div>
                 </Popup>
                 </span>
-                </div><br></br>
+                </div>
                 <div className='replyDiv'>
                 {user.replies.map((reply) => (
                   <div style={{display:'flex'}}>
                   <Popup trigger={<img
-                    className='smImg'
+                    className='newImg'
                     src={reply.pic}
                   />}
                   position="bottom center"
@@ -272,7 +282,6 @@ class InfiniteUsers extends Component {
                   </Popup>
                   <span className="verylight">at</span>
                   <span className="point">{user.pointInSong}</span>
-                  <span className="time">{user.time}</span>
                   <div>
                   <Popup trigger={<span>@<a className="button">{user.user}</a>:</span>}
                   position="bottom center"
@@ -296,6 +305,7 @@ class InfiniteUsers extends Component {
                   <span className="reply">{reply.reply}</span>
                   </div>
                   </div>
+                  <span className="time">{user.time}</span>
                   <br></br><br></br><br></br>
                   </div>
                 ))}
@@ -314,7 +324,27 @@ class InfiniteUsers extends Component {
         {isLoading &&
           <div>Loading...</div>
         }
-
+        </div>
+        <div className="right">
+        <a class="aClass">
+            <h3 class="aHead">
+                <span class="sc-icon sc-icon-sound sc-icon-large sidebarHeader__icon"></span>
+              <span class="sidebarHeader__actualTitle">Related tracks</span>
+            </h3>
+            <span class="spanOut">View all</span>
+        </a>
+        <div className="related">
+          <div className="inRel">
+            <div className="ele">
+              <span><img className="relateImg" src={currentSong.picture}/></span>
+              <div className="wrapper">
+                <div className="nameRel"> asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfasdf </div>
+                <div className="songRel"> sdfasdfffffffffffffffffffffffffffffffffffffffffffffff </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
       </div>
     );
   }
