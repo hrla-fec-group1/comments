@@ -56,17 +56,116 @@
   -webkit-margin-end: 0px;
   -webkit-padding-start: 40px;
   position: relative;
-  margin-left:auto;
-  margin-right:auto;
   width:960px;
 }
 .related {
   padding-top: 5px;
 }
+.wrapper2 {
+  margin-top: 0;
+  font-size: 14px;
+}
 .wrapper {
   display: block;
   flex: 1;
   min-width: 0;
+  margin-top: 4px;
+  overflow: hidden;
+  text-align: -webkit-match-parent;
+  list-style: none;
+
+}
+.iconDiv {
+  justify-content: flex-start;
+list-style: none;
+margin: 0;
+    flex-wrap: wrap;
+        display: flex;
+        font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+    padding: 0;
+}
+.relatedImg {
+  background-size: 28px 28px;
+  width: 21px;
+margin-right: 4px;
+height: 24px;
+    vertical-align: top;
+    display: inline-block;
+background-repeat: no-repeat;
+background-position: center center;
+}
+.lastAClass {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+}
+.likeEle {
+  padding: 5px 0;
+  left: -6px;
+  display: list-item;
+  margin-left: 15px;
+  text-align: -webkit-match-parent;
+  margin-right: -6px;
+  list-style: none;
+  position: relative;
+  min-height: 60px;
+}
+.reposts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+}
+.likes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+}
+.finalRelImg {
+  background-size: 22px 22px;
+  width: 17px;
+height: 18px;
+margin-left: 10px;
+background-repeat: no-repeat;
+background-position: center center;
+}
+.lastRelImg {
+  background-size: 22px 22px;
+  width: 17px;
+height: 18px;
+margin-left: -70px;
+background-repeat: no-repeat;
+background-position: center center;
+}
+.likeRelImg {
+  background-size: 22px 22px;
+  width: 17px;
+height: 18px;
+margin-left: -70px;
+background-repeat: no-repeat;
+background-position: center center;
+}
+.newRelImg {
+  background-size: 22px 22px;
+  width: 17px;
+height: 18px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.iconsF {
+  width: 16px;
+height: 12px;
+}
+.icons {
+  width: 16px;
+height: 12px;
+padding-left: 10px
 }
 .nameRel {
   overflow: hidden;
@@ -80,23 +179,34 @@ white-space: nowrap;
 text-overflow: ellipsis;
 word-break: normal;
 }
+.newAClass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+}
 .relateImg {
-  display: inline-block;
-background: center center/contain no-repeat;
+  display: block;
 margin-right: 4px;
 padding: 5px 6px;
 width: 50px;
 height: 50px;
-position: relative;
-    float: left;
 }
 .ele {
-  padding: 0;
-left: -6px;
-margin-right: -6px;
+  padding: 5px 0;
+display: flex;
+text-align: -webkit-match-parent;
+list-style: none;
 position: relative;
 min-height: 60px;
-border-radius: 4px;
+}
+.playHead {
+  font-weight: 100;
+    color: #999;
+}
+.repHead {
+  font-weight: 100;
+  color: #999;
 }
 .right {
   top: 30px;
@@ -109,6 +219,7 @@ border-radius: 4px;
 }
 .left {
   margin-right: 330px;
+  margin-top: 270px;
   padding-top: 20px;
   padding-right: 30px;
   border-right: 1px solid #f2f2f2;
@@ -143,6 +254,7 @@ border-radius: 4px;
 .content {
   font-style: normal;
   text-align: -webkit-match-parent;
+  padding-bottom: 10px;
     font-variant-ligatures: normal;
     font-variant-caps: normal;
     font-variant-numeric: normal;
@@ -162,10 +274,36 @@ border-radius: 4px;
   display: flex;
   flex-direction: row;
   align-items: center;
+      text-decoration: none;
   justify-content: space-between;
   border-bottom: 1px solid #f2f2f2;
 }
 .aHead {
+  font-weight: 100;
+    color: #999;
+}
+.first {
+  margin-bottom: 20px;
+}
+.testClass {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 10px solid #f2f2f2;
+}
+.albumClass {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #f2f2f2;
+}
+.albumHead {
+  font-weight: 100;
+    color: #999;
+}
+.likeHead {
   font-weight: 100;
     color: #999;
 }
@@ -202,7 +340,7 @@ border-radius: 4px;
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
 }
 .time {
-  margin-left: 10px;
+  float: right;
   white-space: nowrap;
   font-size: 11px;
   color: #999;
@@ -216,18 +354,36 @@ border-radius: 4px;
   line-height: 1.4;
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
 }
+.cutImg {
+  width: 40px;
+height: 40px;
+opacity: 1;
+margin-right:-20px;
+border: 2px solid #fff;
+box-sizing: border-box;
+background-origin: border-box;
+border-radius: 50%;
+}
 .mybtn {
-  height: 30px;
-  border-radius: 12px;
+  height: 20px;
+  width:20px;
+  border-radius: 3px;
   margin-left: 50px;
+    padding: 2px 9px 2px 8px;
+    height: 22px;
+    line-height: 16px;
   visibility: hidden;
+  background-image: url("https://image.flaticon.com/icons/svg/60/60577.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+ background-position: center;
 }
 .hi {
   visibility: hidden
 }
 .replyDiv {
   padding-left: 0px;
-  margin-left: 20px;
+  margin-left: -5px;
 }
 .smImg {
   border-radius:50%;

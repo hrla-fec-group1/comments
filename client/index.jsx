@@ -167,9 +167,9 @@ class InfiniteUsers extends Component {
     return (
       <div className="container">
       <div className="amount">
-      {users.length} Comments
       </div>
       <div className="left">
+      <img className="icons" src="https://image.flaticon.com/icons/svg/61/61157.svg"></img> {users.length} Comments
         {currentUser.map((user,index) => (
           <div onMouseEnter={()=>this.hov(index)}
     onMouseLeave={()=>this.off(index)}>
@@ -223,7 +223,7 @@ class InfiniteUsers extends Component {
                 <div style={{display:'flex'}}>
                 <span className='content'> {user.content}</span>
                 <span>
-                <Popup className="popno" trigger={<button className='mybtn' onClick={()=>this.show(index)}> Reply </button>}
+                <Popup className="popno" trigger={<button className='mybtn' onClick={()=>this.show(index)}></button>}
                   on='click'
                   position='left center'>
 
@@ -326,28 +326,130 @@ class InfiniteUsers extends Component {
         }
         </div>
         <div className="right">
-        <a class="aClass">
-            <h3 class="aHead">
-                <span class="sc-icon sc-icon-sound sc-icon-large sidebarHeader__icon"></span>
-              <span class="sidebarHeader__actualTitle">Related tracks</span>
+        <div className='first'>
+        <a className="aClass" href="">
+            <h3 className="aHead">
+              <span ><img className="relatedImg" src="https://image.flaticon.com/icons/svg/104/104695.svg"/> Related tracks</span>
             </h3>
-            <span class="spanOut">View all</span>
+            <span className="spanOut">View all</span>
         </a>
         <div className="related">
           <div className="inRel">
             <div className="ele">
-              <span><img className="relateImg" src={currentSong.picture}/></span>
+              <img className="relateImg" src="https://image.flaticon.com/icons/svg/145/145809.svg"/>
               <div className="wrapper">
+              <div className='wrapper2'>
                 <div className="nameRel"> asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfasdf </div>
                 <div className="songRel"> sdfasdfffffffffffffffffffffffffffffffffffffffffffffff </div>
+              </div>
+                <div className="iconDiv">
+                  <img className="iconsF" src="https://image.flaticon.com/icons/svg/56/56809.svg"></img> 3000
+                  <img className="icons" src="https://image.flaticon.com/icons/svg/69/69904.svg"></img> 3000
+                  <img className="icons" src="https://image.flaticon.com/icons/svg/16/16148.svg"></img> 3000
+                  <img className="icons" src="https://image.flaticon.com/icons/svg/61/61157.svg"></img> 3000
+                </div>
               </div>
             </div>
           </div>
         </div>
         </div>
+
+        <div className='first'>
+        <a className="aClass" href="">
+            <h3 className="aHead">
+              <span ><img className="relatedImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/> In Albums</span>
+            </h3>
+            <span className="spanOut">View all</span>
+        </a>
+        <div className="album">
+          <div className="inRel">
+            <div className="ele">
+              <span><img className="relateImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/></span>
+              <div className="wrapper">
+              <div className='wrapper2'>
+                <div className="nameRel"> Artist </div>
+                <div className="songRel"> Song </div>
+              </div>
+                Album * 2018
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div className='first'>
+        <a className="aClass" href="">
+            <h3 className="aHead">
+              <span><img className="relatedImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/> In Playlists</span>
+            </h3>
+            <span className="spanOut">View all</span>
+        </a>
+        <div className="album">
+          <div className="inRel">
+            <div className="ele">
+              <span><img className="relateImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/></span>
+              <div className="wrapper">
+              <div className='wrapper2'>
+                <div className="nameRel"> Artist </div>
+                <div className="songRel"> PlayList Name </div>
+              </div>
+                <div className="iconDiv">
+                  <img className="iconsF" src="https://image.flaticon.com/icons/svg/69/69904.svg"></img> 5
+                  <img className="icons" src="https://image.flaticon.com/icons/svg/16/16148.svg"></img> 2
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+        <div className='first'>
+        <a className="aClass" href="">
+            <h3 className="aHead">
+              <span><img className="relatedImg" src="https://image.flaticon.com/icons/svg/69/69904.svg"/> 5000 Likes</span>
+            </h3>
+            <span className="spanOut">View all</span>
+        </a>
+            <div className="likeEle">
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148744.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/149/149049.svg"/></span>
+
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148733.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148752.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148741.svg"/></span>
+              <span><img className="cutImg" src="https://www.flaticon.com/premium-icon/icons/svg/1134/1134203.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148748.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/321/321828.svg"/></span>
+            </div>
+        </div>
+
+        <div className='first'>
+        <a className="aClass" href="">
+            <h3 className="aHead">
+              <span ><img className="relatedImg" src="https://image.flaticon.com/icons/svg/16/16148.svg"/> 5000 Reposts</span>
+            </h3>
+            <span className="spanOut">View all</span>
+        </a>
+            <div className="likeEle">
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148744.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/149/149049.svg"/></span>
+
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148733.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148752.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148741.svg"/></span>
+              <span><img className="cutImg" src="https://www.flaticon.com/premium-icon/icons/svg/1134/1134203.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148748.svg"/></span>
+              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/321/321828.svg"/></span>
+            </div>
+        </div>
+
+        </div>
       </div>
     );
   }
 }
-
+https://image.flaticon.com/icons/svg/346/346685.svg
 render(<InfiniteUsers />, document.getElementById('root'));
