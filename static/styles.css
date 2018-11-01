@@ -73,6 +73,9 @@
   overflow: hidden;
   text-align: -webkit-match-parent;
   list-style: none;
+  font-weight: 100;
+  font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+color: #999;
 
 }
 .iconDiv {
@@ -81,8 +84,9 @@ list-style: none;
 margin: 0;
     flex-wrap: wrap;
         display: flex;
+        font-weight: 100;
         font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    color: #333;
+    color: #999;
     padding: 0;
 }
 .relatedImg {
@@ -172,12 +176,16 @@ padding-left: 10px
 white-space: nowrap;
 text-overflow: ellipsis;
 word-break: normal;
+font-weight: 100;
+color: #999;
+font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
 }
 .songRel {
   overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
 word-break: normal;
+color: #333;
 }
 .newAClass {
   display: flex;
@@ -215,7 +223,8 @@ min-height: 60px;
     width: 300px;
     display: block;
     margin-bottom: 20px;
-
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+color: #333;
 }
 .left {
   margin-right: 330px;

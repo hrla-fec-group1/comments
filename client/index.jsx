@@ -166,8 +166,6 @@ class InfiniteUsers extends Component {
 
     return (
       <div className="container">
-      <div className="amount">
-      </div>
       <div className="left">
       <img className="icons" src="https://image.flaticon.com/icons/svg/61/61157.svg"></img> {users.length} Comments
         {currentUser.map((user,index) => (
@@ -357,7 +355,7 @@ class InfiniteUsers extends Component {
         <div className='first'>
         <a className="aClass" href="">
             <h3 className="aHead">
-              <span ><img className="relatedImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/> In Albums</span>
+              <span ><img className="relatedImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/> In albums</span>
             </h3>
             <span className="spanOut">View all</span>
         </a>
@@ -380,7 +378,7 @@ class InfiniteUsers extends Component {
         <div className='first'>
         <a className="aClass" href="">
             <h3 className="aHead">
-              <span><img className="relatedImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/> In Playlists</span>
+              <span><img className="relatedImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/> In playlists</span>
             </h3>
             <span className="spanOut">View all</span>
         </a>
@@ -407,7 +405,7 @@ class InfiniteUsers extends Component {
         <div className='first'>
         <a className="aClass" href="">
             <h3 className="aHead">
-              <span><img className="relatedImg" src="https://image.flaticon.com/icons/svg/69/69904.svg"/> 5000 Likes</span>
+              <span><img className="relatedImg" src="https://image.flaticon.com/icons/svg/69/69904.svg"/> 5000 likes</span>
             </h3>
             <span className="spanOut">View all</span>
         </a>
@@ -428,7 +426,7 @@ class InfiniteUsers extends Component {
         <div className='first'>
         <a className="aClass" href="">
             <h3 className="aHead">
-              <span ><img className="relatedImg" src="https://image.flaticon.com/icons/svg/16/16148.svg"/> 5000 Reposts</span>
+              <span ><img className="relatedImg" src="https://image.flaticon.com/icons/svg/16/16148.svg"/> 5000 reposts</span>
             </h3>
             <span className="spanOut">View all</span>
         </a>
