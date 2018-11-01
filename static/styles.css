@@ -42,11 +42,11 @@
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
 }
 .amount {
-  margin-left: 150px;
+  display: flex;
   border-bottom: 1px solid #f2f2f2;
-  margin-right: 360px;
   color: #999;
   font-weight: 100;
+  margin-bottom: 20px;
 }
 .container {
   display:block;
@@ -82,6 +82,7 @@ color: #999;
   justify-content: flex-start;
 list-style: none;
 margin: 0;
+text-decoration: none;
     flex-wrap: wrap;
         display: flex;
         font-weight: 100;
@@ -180,6 +181,13 @@ font-weight: 100;
 color: #999;
 font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
 }
+.spec {
+  width: 16px;
+height: 12px;
+}
+.specPop {
+  width:10px;
+}
 .songRel {
   overflow: hidden;
 white-space: nowrap;
@@ -217,7 +225,7 @@ min-height: 60px;
   color: #999;
 }
 .right {
-  top: 30px;
+  top: -30px;
     right: 0;
     position: absolute;
     width: 300px;
