@@ -110,10 +110,11 @@ background-position: center center;
 .likeEle {
   padding: 5px 0;
   left: -6px;
-  display: list-item;
-  margin-left: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0;
   text-align: -webkit-match-parent;
-  margin-right: -6px;
   list-style: none;
   position: relative;
   min-height: 60px;
@@ -380,6 +381,9 @@ border: 2px solid #fff;
 box-sizing: border-box;
 background-origin: border-box;
 border-radius: 50%;
+text-align: center;
+    position: relative;
+    background-repeat: no-repeat;
 }
 .mybtn {
   height: 20px;

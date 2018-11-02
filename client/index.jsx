@@ -130,14 +130,11 @@ class InfiniteUsers extends Component {
                 context.setState({
                   users: myResponse.data,
                 },function(){
-                  console.log(context.state.users,context.state.page)
                   context.setState({
                     tmpUser: context.state.users.slice(0,10+this.state.page*10)
               },function(){
                 context.setState({
                   currentUser: [...context.state.tmpUser]
-                },function(){
-                  console.log(context.state.currentUser)
                 })
               })
                 })
@@ -333,39 +330,105 @@ class InfiniteUsers extends Component {
         </a>
         <div className="related">
           <div className="inRel">
-            <div className="ele">
-              <img className="relateImg" src="https://image.flaticon.com/icons/svg/145/145809.svg"/>
-              <div className="wrapper">
-              <div className='wrapper2'>
-              <Popup className="specPop" trigger={<div className="nameRel"> asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfasdf</div>}
-              position="bottom center"
-              on='hover'>
-              <div>
-              <img
-                className='lgImg'
-                src="https://image.flaticon.com/icons/svg/145/145809.svg"
-              />
-              <p className="popup"> {'UserName'} </p>
-              <div>
-              <img
-                className='follow'
-                src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
-              />
-              <span> 50</span>
-              </div>
-              <button className="myBtn"> Follow</button>
-              </div>
-              </Popup>
-                <div className="songRel"> sdfasdfffffffffffffffffffffffffffffffffffffffffffffff </div>
-              </div>
-                <a className="iconDiv" href="">
-                  <img className="iconsF" src="https://image.flaticon.com/icons/svg/56/56809.svg"></img> 3000
-                  <img className="icons" src="https://image.flaticon.com/icons/svg/69/69904.svg"></img> 3000
-                  <img className="icons" src="https://image.flaticon.com/icons/svg/16/16148.svg"></img> 3000
-                  <img className="icons" src="https://image.flaticon.com/icons/svg/61/61157.svg"></img> 3000
-                </a>
-              </div>
+          <div className="ele">
+            <img className="relateImg" src="https://i1.sndcdn.com/avatars-000040646884-2fz9f4-t500x500.jpg"/>
+            <div className="wrapper">
+            <div className='wrapper2'>
+            <Popup className="specPop" trigger={<div className="nameRel"> asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfasdf</div>}
+            position="bottom center"
+            on='hover'>
+            <div>
+            <img
+              className='lgImg'
+              src="https://i1.sndcdn.com/avatars-000040646884-2fz9f4-t500x500.jpg"
+            />
+            <p className="popup"> {'UserName'} </p>
+            <div>
+            <img
+              className='follow'
+              src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+            />
+            <span> 50</span>
             </div>
+            <button className="myBtn"> Follow</button>
+            </div>
+            </Popup>
+              <div className="songRel"> sdfasdfffffffffffffffffffffffffffffffffffffffffffffff </div>
+            </div>
+              <a className="iconDiv" href="">
+                <img className="iconsF" src="https://image.flaticon.com/icons/svg/56/56809.svg"></img> 3000
+                <img className="icons" src="https://image.flaticon.com/icons/svg/69/69904.svg"></img> 3000
+                <img className="icons" src="https://image.flaticon.com/icons/svg/16/16148.svg"></img> 3000
+                <img className="icons" src="https://image.flaticon.com/icons/svg/61/61157.svg"></img> 3000
+              </a>
+            </div>
+          </div>
+          <div className="ele">
+            <img className="relateImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDEqaz2kJVuEZbhw4HDx6HVXDBxD-xrA6A86UpJ4YTi9-5qpk"/>
+            <div className="wrapper">
+            <div className='wrapper2'>
+            <Popup className="specPop" trigger={<div className="nameRel"> asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfasdf</div>}
+            position="bottom center"
+            on='hover'>
+            <div>
+            <img
+              className='lgImg'
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDEqaz2kJVuEZbhw4HDx6HVXDBxD-xrA6A86UpJ4YTi9-5qpk"
+            />
+            <p className="popup"> {'UserName'} </p>
+            <div>
+            <img
+              className='follow'
+              src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+            />
+            <span> 50</span>
+            </div>
+            <button className="myBtn"> Follow</button>
+            </div>
+            </Popup>
+              <div className="songRel"> sdfasdfffffffffffffffffffffffffffffffffffffffffffffff </div>
+            </div>
+              <a className="iconDiv" href="">
+                <img className="iconsF" src="https://image.flaticon.com/icons/svg/56/56809.svg"></img> 3000
+                <img className="icons" src="https://image.flaticon.com/icons/svg/69/69904.svg"></img> 3000
+                <img className="icons" src="https://image.flaticon.com/icons/svg/16/16148.svg"></img> 3000
+                <img className="icons" src="https://image.flaticon.com/icons/svg/61/61157.svg"></img> 3000
+              </a>
+            </div>
+          </div>
+          <div className="ele">
+            <img className="relateImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0qF8lQkDrUMBXNaO0VWxoVi8HuF9BT7Qa1G6MKzEO88v6_avlQg"/>
+            <div className="wrapper">
+            <div className='wrapper2'>
+            <Popup className="specPop" trigger={<div className="nameRel"> asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfasdf</div>}
+            position="bottom center"
+            on='hover'>
+            <div>
+            <img
+              className='lgImg'
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0qF8lQkDrUMBXNaO0VWxoVi8HuF9BT7Qa1G6MKzEO88v6_avlQg"
+            />
+            <p className="popup"> {'UserName'} </p>
+            <div>
+            <img
+              className='follow'
+              src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+            />
+            <span> 50</span>
+            </div>
+            <button className="myBtn"> Follow</button>
+            </div>
+            </Popup>
+              <div className="songRel"> sdfasdfffffffffffffffffffffffffffffffffffffffffffffff </div>
+            </div>
+              <a className="iconDiv" href="">
+                <img className="iconsF" src="https://image.flaticon.com/icons/svg/56/56809.svg"></img> 3000
+                <img className="icons" src="https://image.flaticon.com/icons/svg/69/69904.svg"></img> 3000
+                <img className="icons" src="https://image.flaticon.com/icons/svg/16/16148.svg"></img> 3000
+                <img className="icons" src="https://image.flaticon.com/icons/svg/61/61157.svg"></img> 3000
+              </a>
+            </div>
+          </div>
           </div>
         </div>
         </div>
@@ -380,7 +443,7 @@ class InfiniteUsers extends Component {
         <div className="album">
           <div className="inRel">
             <div className="ele">
-              <span><img className="relateImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/></span>
+              <span><img className="relateImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrNU1Hpw6doSSedXlQedQYmG6s58z__kDtwRXHxG83o1mvmTYQdA"/></span>
               <div className="wrapper">
               <div className='wrapper2'>
               <Popup className="specPop" trigger={<div className="nameRel"> Artist</div>}
@@ -389,7 +452,7 @@ class InfiniteUsers extends Component {
               <div>
               <img
                 className='lgImg'
-                src="https://image.flaticon.com/icons/svg/145/145809.svg"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrNU1Hpw6doSSedXlQedQYmG6s58z__kDtwRXHxG83o1mvmTYQdA"
               />
               <p className="popup"> {'UserName'} </p>
               <div>
@@ -421,7 +484,7 @@ class InfiniteUsers extends Component {
         <div className="album">
           <div className="inRel">
             <div className="ele">
-              <span><img className="relateImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/></span>
+              <span><img className="relateImg" src="https://f4.bcbits.com/img/a3824066484_10.jpg"/></span>
               <div className="wrapper">
               <div className='wrapper2'>
               <Popup className="specPop" trigger={<div className="nameRel"> PlayList Owner</div>}
@@ -430,7 +493,7 @@ class InfiniteUsers extends Component {
               <div>
               <img
                 className='lgImg'
-                src="https://image.flaticon.com/icons/svg/145/145809.svg"
+                src="https://f4.bcbits.com/img/a3824066484_10.jpg"
               />
               <p className="popup"> {'UserName'} </p>
               <div>
@@ -451,6 +514,69 @@ class InfiniteUsers extends Component {
                 </a>
               </div>
             </div>
+            <div className="ele">
+              <span><img className="relateImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUsWfd670RZKJ4NwIY3soVTJrDxvL42q-kkVZ6r2lLi-IszaKq"/></span>
+              <div className="wrapper">
+              <div className='wrapper2'>
+              <Popup className="specPop" trigger={<div className="nameRel"> PlayList Owner</div>}
+              position="bottom center"
+              on='hover'>
+              <div>
+              <img
+                className='lgImg'
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUsWfd670RZKJ4NwIY3soVTJrDxvL42q-kkVZ6r2lLi-IszaKq"
+              />
+              <p className="popup"> {'UserName'} </p>
+              <div>
+              <img
+                className='follow'
+                src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+              />
+              <span> 50</span>
+              </div>
+              <button className="myBtn"> Follow</button>
+              </div>
+              </Popup>
+                <div className="songRel"> PlayList Name </div>
+              </div>
+                <a className="iconDiv" href="">
+                  <img className="iconsF" src="https://image.flaticon.com/icons/svg/69/69904.svg"></img> 5
+                  <img className="icons" src="https://image.flaticon.com/icons/svg/16/16148.svg"></img> 2
+                </a>
+              </div>
+            </div>
+            <div className="ele">
+              <span><img className="relateImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSyOTCOlbm-IgT92YVUQH5riH_nXONhDtIRrmxFiF4H8Ikf31kdw"/></span>
+              <div className="wrapper">
+              <div className='wrapper2'>
+              <Popup className="specPop" trigger={<div className="nameRel"> PlayList Owner</div>}
+              position="bottom center"
+              on='hover'>
+              <div>
+              <img
+                className='lgImg'
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSyOTCOlbm-IgT92YVUQH5riH_nXONhDtIRrmxFiF4H8Ikf31kdw"
+              />
+              <p className="popup"> {'UserName'} </p>
+              <div>
+              <img
+                className='follow'
+                src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+              />
+              <span> 50</span>
+              </div>
+              <button className="myBtn"> Follow</button>
+              </div>
+              </Popup>
+                <div className="songRel"> PlayList Name </div>
+              </div>
+                <a className="iconDiv" href="">
+                  <img className="iconsF" src="https://image.flaticon.com/icons/svg/69/69904.svg"></img> 5
+                  <img className="icons" src="https://image.flaticon.com/icons/svg/16/16148.svg"></img> 2
+                </a>
+              </div>
+            </div>
+
           </div>
           </div>
         </div>
@@ -463,18 +589,28 @@ class InfiniteUsers extends Component {
             </h3>
             <span className="spanOut">View all</span>
         </a>
-            <div className="likeEle">
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148744.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/149/149049.svg"/></span>
-
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148733.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148752.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148741.svg"/></span>
-              <span><img className="cutImg" src="https://www.flaticon.com/premium-icon/icons/svg/1134/1134203.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148748.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/321/321828.svg"/></span>
+        <div className="likeEle">
+          {tmpUser.map((user,index) => (
+            <Popup trigger={<span><img className="cutImg" src={user.picture}/></span>}
+            on='hover'>
+            <div>
+            <img
+              className='lgImg'
+              src={user.picture}
+            />
+            <p className="popup"> {user.user} </p>
+            <div>
+            <img
+              className='follow'
+              src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+            />
+            <span> 50</span>
             </div>
+            <button className="myBtn"> Follow</button>
+            </div>
+            </Popup>
+          ))}
+        </div>
         </div>
 
         <div className='first'>
@@ -484,18 +620,28 @@ class InfiniteUsers extends Component {
             </h3>
             <span className="spanOut">View all</span>
         </a>
-            <div className="likeEle">
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/346/346685.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148744.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/149/149049.svg"/></span>
-
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148733.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148752.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148741.svg"/></span>
-              <span><img className="cutImg" src="https://www.flaticon.com/premium-icon/icons/svg/1134/1134203.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/148/148748.svg"/></span>
-              <span><img className="cutImg" src="https://image.flaticon.com/icons/svg/321/321828.svg"/></span>
+        <div className="likeEle">
+          {tmpUser.map((user,index) => (
+            <Popup trigger={<span><img className="cutImg" src={user.picture}/></span>}
+            on='hover'>
+            <div>
+            <img
+              className='lgImg'
+              src={user.picture}
+            />
+            <p className="popup"> {user.user} </p>
+            <div>
+            <img
+              className='follow'
+              src='http://cdn.onlinewebfonts.com/svg/img_529951.png'
+            />
+            <span> 50</span>
             </div>
+            <button className="myBtn"> Follow</button>
+            </div>
+            </Popup>
+          ))}
+        </div>
         </div>
 
         </div>
