@@ -202,6 +202,15 @@ color: #333;
   justify-content: space-between;
   border-bottom: 1px solid #f2f2f2;
 }
+.specImg {
+  width: 35px;
+  height: 35px;
+  margin-top: 12px;
+  margin-left: -54px;
+  margin-right: 18px;
+  border-radius: 12px;
+  visibility: hidden;
+}
 .relateImg {
   display: block;
 margin-right: 4px;

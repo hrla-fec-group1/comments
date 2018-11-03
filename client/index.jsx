@@ -47,10 +47,8 @@ class InfiniteUsers extends Component {
 
       // Checks that the page has scrolled to the bottom
       this.handleMouseMove = this.handleMouseMove.bind(this)
-      console.log(window.innerHeight,window.scrollY,document.documentElement.offsetHeight)
       if (window.innerHeight + window.scrollY
         >= document.documentElement.offsetHeight) {
-          console.log('bigger')
           this.setState({
             page: this.state.page +1
           })
@@ -331,7 +329,7 @@ class InfiniteUsers extends Component {
         <div className="related">
           <div className="inRel">
           <div className="ele">
-            <img className="relateImg" src="https://i1.sndcdn.com/avatars-000040646884-2fz9f4-t500x500.jpg"/>
+            <img className="relateImg" onMouseEnter={()=>document.getElementById('first').style.visibility = 'visible'} onMouseLeave={()=>document.getElementById('first').style.visibility = 'hidden'} src="https://i1.sndcdn.com/avatars-000040646884-2fz9f4-t500x500.jpg"/><img className='specImg' id='first' src="https://image.flaticon.com/icons/svg/283/283695.svg"></img>
             <div className="wrapper">
             <div className='wrapper2'>
             <Popup className="specPop" trigger={<div className="nameRel"> asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfasdf</div>}
@@ -364,7 +362,7 @@ class InfiniteUsers extends Component {
             </div>
           </div>
           <div className="ele">
-            <img className="relateImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDEqaz2kJVuEZbhw4HDx6HVXDBxD-xrA6A86UpJ4YTi9-5qpk"/>
+            <img className="relateImg" onMouseEnter={()=>document.getElementById('second').style.visibility = 'visible'} onMouseLeave={()=>document.getElementById('second').style.visibility = 'hidden'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDEqaz2kJVuEZbhw4HDx6HVXDBxD-xrA6A86UpJ4YTi9-5qpk"/><img className='specImg' id='second' src="https://image.flaticon.com/icons/svg/283/283695.svg"></img>
             <div className="wrapper">
             <div className='wrapper2'>
             <Popup className="specPop" trigger={<div className="nameRel"> asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfasdf</div>}
@@ -397,7 +395,7 @@ class InfiniteUsers extends Component {
             </div>
           </div>
           <div className="ele">
-            <img className="relateImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0qF8lQkDrUMBXNaO0VWxoVi8HuF9BT7Qa1G6MKzEO88v6_avlQg"/>
+            <img className="relateImg" onMouseEnter={()=>document.getElementById('third').style.visibility = 'visible'} onMouseLeave={()=>document.getElementById('third').style.visibility = 'hidden'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0qF8lQkDrUMBXNaO0VWxoVi8HuF9BT7Qa1G6MKzEO88v6_avlQg"/><img className='specImg' id='third' src="https://image.flaticon.com/icons/svg/283/283695.svg"></img>
             <div className="wrapper">
             <div className='wrapper2'>
             <Popup className="specPop" trigger={<div className="nameRel"> asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsdfasdf</div>}
