@@ -649,4 +649,4 @@ class InfiniteUsers extends Component {
   }
 }
 https://image.flaticon.com/icons/svg/346/346685.svg
-render(<InfiniteUsers />, document.getElementById('root'));
+render(<InfiniteUsers />, document.getElementById('comments'));
