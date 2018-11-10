@@ -3,19 +3,19 @@ const Comments = require('./comments.js');
 const faker = require('faker')
 
 function formatDate(date) {
-  let diff = new Date() - date; // the difference in milliseconds
+  var diff = new Date() - date; // the difference in milliseconds
   //console.log('diff',diff)
   if (diff < 1000) { // less than 1 second
     return 'right now';
   }
 
-  let sec = Math.floor(diff / 1000); // convert diff to seconds
+  var sec = Math.floor(diff / 1000); // convert diff to seconds
 
   if (sec < 60) {
     return sec + ' sec. ago';
   }
 
-  let min = Math.floor(diff / 60000); // convert diff to minutes
+  var min = Math.floor(diff / 60000); // convert diff to minutes
   if (min < 60) {
     return min + ' min. ago';
   } else{
@@ -24,7 +24,7 @@ function formatDate(date) {
 
   // format the date
   // add leading zeroes to single-digit day/month/hours/minutes
-  let d = date;
+  var d = date;
   d = [
     '0' + d.getDate(),
     '0' + (d.getMonth() + 1),
