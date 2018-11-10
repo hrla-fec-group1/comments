@@ -160,8 +160,8 @@ class InfiniteUsers extends Component {
     } = this.state;
 
     return (
-      <div>
-      <div className="container">
+      <div className="outer">
+      <div className="mycontainer">
       <div className="left">
       <div className='amount'><img className="spec" src="https://image.flaticon.com/icons/svg/61/61157.svg"></img> <span className='afterSpec'>{users.length} Comments</span></div>
         {currentUser.map((user,index) => (
